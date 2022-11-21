@@ -34,15 +34,10 @@ def cube_root(a):
 def quadratic_eqn(a,b,c):
     root_value = b **2 - (4 * a * c)
     divisor = 2 * a 
-    s = square_root(root_value)
+    s = root_value **2
     x1 = - b + s / divisor
-    # x2 = (-b  - square_root(root_value)) / divisor
-    
-    
-    # print('x = ', x1 , 'or', x2 )
+    x2 = -b - s / divisor
+    print('x = ', x1 , 'or', x2 )
 
-division(6,2)
-# square_root(4)  
-# quadratic_eqn(5,6,1)
-# multiply(2,5,2)
+square_root(4)
 
