@@ -39,5 +39,5 @@ def quadratic_eqn(a,b,c):
     x2 = -b - s / divisor
     print('x = ', x1 , 'or', x2 )
 
-square_root(4)
+
 
