@@ -13,6 +13,7 @@ soup = BeautifulSoup(page.content, "html.parser")
 ig_posts = soup.find_all("div", class_= 'm-statement__quote')# Statement location
 images = soup.find_all("img", class_ = 'c-image__original')
 footer = soup.find_all("footer", class_ ='m-statement__footer')
+meta_source = soup.find_all("a", class_= "m-statement__name")
 true_news = soup.find_all("div", class_ = 'm-statement__content')
 
 
@@ -49,3 +50,16 @@ def scrape():
         new_date = month+ ' ' +day+ ' '+year
         authors.append(name)
         date.append(new_date)
+        
+        for posts in ig_posts:
+            link = posts.find_all("a")
+            post = link[0].text.strip()
+            statement.append(post)
+            print(post.text.strip())
+            print()
+            
+        for s in meta_source:
+            word = s.find_all("a")
+            word_text = word[0].text.strip()
+            sources.append(word)
+           
