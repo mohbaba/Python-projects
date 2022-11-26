@@ -8,10 +8,11 @@ authors = []
 date = []
 statement = []
 sources = []
+truth_meter = []
 
 soup = BeautifulSoup(page.content, "html.parser")
 ig_posts = soup.find_all("div", class_= 'm-statement__quote')# Statement location
-images = soup.find_all("img", class_ = 'c-image__original')
+images = soup.find_all("div", class_ = 'm-statement__meter')
 footer = soup.find_all("footer", class_ ='m-statement__footer')
 meta_source = soup.find_all("a", class_= "m-statement__name")
 true_news = soup.find_all("div", class_ = 'm-statement__content')
@@ -30,9 +31,7 @@ for item in images:
         if pics == 'https://static.politifact.com/politifact/rulings/meter-mostly-true.jpg':
             true_content.append(pics)
 print(true_content)
-# print(image_sources)
-    # if item['src'] == ['https://static.politifact.com/politifact/rulings/meter-mostly-true.jpg']:
-    #     print(item['src'])
+
     
 def scrape():
     page_url = 'https://www.politifact.com/'
@@ -51,15 +50,18 @@ def scrape():
         authors.append(name)
         date.append(new_date)
         
-        for posts in ig_posts:
-            link = posts.find_all("a")
-            post = link[0].text.strip()
-            statement.append(post)
-            print(post.text.strip())
-            print()
-            
-        for s in meta_source:
-            word = s.find_all("a")
-            word_text = word[0].text.strip()
-            sources.append(word)
-           
+    for posts in ig_posts:
+        link = posts.find_all("a")
+        post = link[0].text.strip()
+        statement.append(post)
+        # print(post.text.strip())
+        # print()
+        
+    for s in meta_source:
+        word = s.find_all("a")
+        word_text = word[0].text.strip()
+        sources.append(word)
+        
+    for i in images:
+        facts = i.find("div", class_ = 'c-image').find('img').get('alt')
+        truth_meter.append(facts)
