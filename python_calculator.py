@@ -37,7 +37,7 @@ def quadratic_eqn(a,b,c):
     s = root_value **2
     x1 = - b + s / divisor
     x2 = -b - s / divisor
-    print('x = ', x1 , 'or', x2 )
+    print(f'x =  {x1} or {x2} ')
 
 
 
