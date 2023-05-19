@@ -13,7 +13,11 @@ def organize(path_name):
         '.xlsx': 'Spreadsheets',
         '.docx': 'Documents',
         '.mp3': 'Music',
-        '.mp4': 'Videos'
+        '.mp4': 'Videos',
+        '.mkv':'Videos',
+        '.zip' : 'Zip Files',
+        '.exe' : 'Software Setups',
+        '.srt':'Videos'
         # Add more file extensions and folder names as needed
     }
     split_files = []
@@ -33,7 +37,7 @@ def organize(path_name):
                 shutil.move(filename, os.path.join(new_directory, filename))
                 print(f"Moved {filename} to {new_directory}")
         
-   
 
-p= organize(r'C:\Users\hp\Downloads')
+
+p= organize(r'C:\Users\hp\Downloads\New folder\New folder')
 
