@@ -36,5 +36,3 @@ def main():
     generate(pass_len)
 
 
-p=generate(10)
-print(p)   
