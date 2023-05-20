@@ -1,7 +1,7 @@
 import os
 import shutil
 
-
+path_name = input(r'Enter File Address')
 def organize(path_name):
     os.chdir(path_name)
     directory = os.listdir(path_name)
